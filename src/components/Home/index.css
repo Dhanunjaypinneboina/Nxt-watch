@@ -1,0 +1,9 @@
+.close-icon {
+  margin-left: 500px;
+}
+
+.input-search-el {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

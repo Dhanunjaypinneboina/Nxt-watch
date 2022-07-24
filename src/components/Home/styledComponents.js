@@ -11,7 +11,7 @@ export const SideBarVideosContainer = styled.div`
 
 export const VideosList = styled.div`
   height: 100vh;
-  min-width: 70vw;
+  width: 80vw;
 `
 
 export const PremiumAd = styled.div`
@@ -20,4 +20,10 @@ export const PremiumAd = styled.div`
   min-width: 70vw;
   background-size: cover;
   margin-bottom: 10px;
+  display: ${props => props.display};
+`
+
+export const PremiumAdContent = styled.div`
+  display: flex;
+  flex-direction: column;
 `

@@ -9,11 +9,20 @@ import {
   SideBarVideosContainer,
   VideosList,
   PremiumAd,
+  PremiumAdContent,
 } from './styledComponents'
 
 import SideNavBar from '../SideNavBar'
 
 class Home extends Component {
+  state = {
+    display: 'flex',
+  }
+
+  onClickRemoveBanner = () => {
+    this.setState({display: 'none'})
+  }
+
   renderAllVideos = () => (
     <div>
       <SearchedVideos />
@@ -21,14 +30,15 @@ class Home extends Component {
   )
 
   render() {
+    const {display} = this.state
     return (
       <HomeContainer>
         <Header />
         <SideBarVideosContainer>
           <SideNavBar />
           <VideosList>
-            <PremiumAd>
-              <>
+            <PremiumAd display={display}>
+              <PremiumAdContent>
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                   alt="watch logo"
@@ -36,8 +46,11 @@ class Home extends Component {
                 />
                 <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
                 <button type="button">GET IT NOW</button>
-              </>
-              <IoMdClose className="close-icon" />
+              </PremiumAdContent>
+              <IoMdClose
+                className="close-icon"
+                onClick={this.onClickRemoveBanner}
+              />
             </PremiumAd>
             {this.renderAllVideos()}
           </VideosList>

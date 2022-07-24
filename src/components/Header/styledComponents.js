@@ -5,6 +5,7 @@ export const HeaderContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 90vw;
   padding: 20px;
 `
 export const HeaderContext = styled.div`

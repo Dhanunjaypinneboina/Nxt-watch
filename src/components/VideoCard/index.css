@@ -1,0 +1,18 @@
+.card-image {
+  height: 170px;
+  width: 320px;
+}
+.profile-img {
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.views-count {
+  padding-right: 10px;
+  margin: 0px;
+}
+
+.published-at {
+  margin: 0px;
+}

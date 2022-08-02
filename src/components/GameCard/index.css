@@ -1,0 +1,22 @@
+.game-img {
+  height: 220px;
+  width: 150px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.game-title {
+  font-size: 15px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.game-view-count {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.game-link {
+  text-decoration: none;
+}

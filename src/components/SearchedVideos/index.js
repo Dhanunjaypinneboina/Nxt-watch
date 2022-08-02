@@ -34,7 +34,7 @@ class SearchedVideos extends Component {
     this.setState({apiStatus: apiStatusContext.in_progress})
     const {userValue} = this.state
 
-    const jwtToken = Cookies.get('JWT_TOKEN')
+    const jwtToken = Cookies.get('jwt_token')
 
     const Url = `https://apis.ccbp.in/videos/all?search=${userValue}`
 
@@ -84,8 +84,8 @@ class SearchedVideos extends Component {
               alt="no videos"
               className="no-videos-img"
             />
-            <h1>NoSearch results found</h1>
-            <p className="">Try different words or remove search filter</p>
+            <h1>No Search results found</h1>
+            <p className="">Try different key words or remove search filter</p>
             <button type="button" onClick={this.getVideosData}>
               Retry
             </button>
@@ -108,14 +108,16 @@ class SearchedVideos extends Component {
         alt="failure view"
       />
       <h1>Oops! Something Went Wrong</h1>
-      <p>We are having trouble to complete your request.</p>
+      <p>We are having some trouble</p>
       <p>Please try again</p>
-      <button type="button">Retry</button>
+      <button type="button" onClick={this.getVideosData}>
+        Retry
+      </button>
     </FailureView>
   )
 
   renderLoaderView = () => (
-    <Spinner>
+    <Spinner data-testid="loader">
       <Loader type="ThreeDots" />
     </Spinner>
   )
@@ -159,8 +161,9 @@ class SearchedVideos extends Component {
             onChange={this.onChangeUserInput}
             value={userInput}
             onKeyDown={this.onEnterSearchInput}
+            placeholder="Search"
           />
-          <button type="button">
+          <button type="button" data-testid="searchButton">
             <BiSearch onClick={this.onClickSearchButton} />
           </button>
         </div>

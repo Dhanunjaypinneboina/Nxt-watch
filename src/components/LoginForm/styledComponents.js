@@ -13,8 +13,10 @@ export const FormContainer = styled.form`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  border: 2px solid blue;
-  padding: 20px;
+  background-color: ${props => (props.backgroundColor ? '#0f0f0f' : '#f9f9f9')};
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 1px 2px 30px 50px '#94a3b8';
 `
 export const InputLabelContainer = styled.div`
   display: flex;
@@ -26,9 +28,9 @@ export const InputLabelContainer = styled.div`
 
 export const Label = styled.label`
   font-size: 15px;
-  color: #475569;
+  color: ${props => (props.color ? '#ffffff' : '#181818')};
   font-weight: 500;
-  padding-top: 20px;
+  padding: 10px;
 `
 
 export const Input = styled.input`
@@ -51,4 +53,5 @@ export const LoginButton = styled.button`
   color: #f8fafc;
   border: none;
   border-radius: 5px;
+  color: #ffffff;
 `

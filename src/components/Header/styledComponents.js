@@ -15,3 +15,14 @@ export const HeaderContext = styled.div`
   justify-content: space-around;
   width: 250px;
 `
+
+export const PopupContainer = styled.div`
+  background-color: #cbd5e1;
+  padding: 50px;
+  border-radius: 10px;
+`
+
+export const LogoButton = styled.button`
+  background-color: transparent;
+  border: none;
+`

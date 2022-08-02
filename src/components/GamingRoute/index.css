@@ -1,0 +1,9 @@
+.game-icon {
+  height: 60px;
+  width: 60px;
+  border-radius: 45px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #d7dfe9;
+  color: #ff0b37;
+}

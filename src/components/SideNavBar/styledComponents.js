@@ -10,4 +10,8 @@ export const SideBarItem = styled(Link)`
 
 export const SideBarContainer = styled.div`
   width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
 `

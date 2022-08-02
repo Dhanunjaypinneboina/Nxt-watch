@@ -21,9 +21,15 @@ export const PremiumAd = styled.div`
   background-size: cover;
   margin-bottom: 10px;
   display: ${props => props.display};
+  flex-direction: row;
+  align-items: flex-start;
 `
 
 export const PremiumAdContent = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const HomeBgContainer = styled.div`
+  background-color: ${props => props.color};
 `

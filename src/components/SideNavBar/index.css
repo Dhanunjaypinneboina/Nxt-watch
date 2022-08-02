@@ -2,3 +2,16 @@
   font-size: 35px;
   padding-right: 10px;
 }
+
+.side-bar-logos {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.contact-heading {
+  font-size: 20px;
+}
+
+.side-bar-para {
+  width: 170px;
+}

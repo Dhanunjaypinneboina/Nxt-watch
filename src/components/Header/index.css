@@ -5,3 +5,37 @@
 .profile {
   height: 35px;
 }
+
+.trigger-button {
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Roboto';
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+}
+
+.trigger-cancel-button {
+  background-color: transparent;
+  color: #616e7c;
+  border: 1px solid #616e7c;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: 'Roboto';
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 5px;
+  margin-right: 100px;
+}
+.popup-text {
+  font-family: 'Roboto';
+  font-size: 20px;
+  padding-bottom: 25px;
+}

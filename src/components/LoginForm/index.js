@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-
+import {Redirect} from 'react-router-dom'
 import {Component} from 'react'
 import {
   InputLabelContainer,
@@ -11,6 +11,7 @@ import {
   LoginButton,
 } from './styledComponents'
 import './index.css'
+import CardContext from '../../context/CardContext'
 
 class LoginForm extends Component {
   state = {
@@ -26,7 +27,7 @@ class LoginForm extends Component {
 
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('JWT_TOKEN', jwtToken, {expires: 30})
+    Cookies.set('jwt_token', jwtToken, {expires: 30})
     history.replace('/')
   }
 
@@ -59,45 +60,72 @@ class LoginForm extends Component {
     const {isShowPassword, errorMsg} = this.state
 
     return (
-      <FormContainer onSubmit={this.onSubmitForm}>
-        <img
-          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-          alt="light theme"
-          className="watch-logo"
-        />
+      <CardContext.Consumer>
+        {value => {
+          const {isDarkTheme} = value
 
-        <InputLabelContainer>
-          <Label htmlFor="username">USERNAME</Label>
-          <Input type="text" id="username" onChange={this.onChangeUsername} />
-        </InputLabelContainer>
+          const changeLogo = isDarkTheme
+            ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+            : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
 
-        <InputLabelContainer>
-          <Label htmlFor="password">PASSWORD</Label>
-          <Input
-            type={isShowPassword ? 'text' : 'password'}
-            id="password"
-            onChange={this.onChangePassword}
-          />
-        </InputLabelContainer>
+          return (
+            <FormContainer
+              onSubmit={this.onSubmitForm}
+              backgroundColor={isDarkTheme}
+            >
+              <img src={changeLogo} alt="website logo" className="watch-logo" />
 
-        <ShowPasswordContainer>
-          <input
-            type="checkbox"
-            id="checkbox"
-            onChange={this.onShowHidePassword}
-          />
-          <label htmlFor="checkbox" checked={isShowPassword}>
-            Show Password
-          </label>
-        </ShowPasswordContainer>
+              <InputLabelContainer>
+                <Label htmlFor="username" color={isDarkTheme}>
+                  USERNAME
+                </Label>
+                <Input
+                  type="text"
+                  id="username"
+                  onChange={this.onChangeUsername}
+                />
+              </InputLabelContainer>
 
-        <LoginButton type="submit">Login</LoginButton>
-        <p>{errorMsg}</p>
-      </FormContainer>
+              <InputLabelContainer>
+                <Label htmlFor="password" color={isDarkTheme}>
+                  PASSWORD
+                </Label>
+                <Input
+                  type={isShowPassword ? 'text' : 'password'}
+                  id="password"
+                  onChange={this.onChangePassword}
+                />
+              </InputLabelContainer>
+
+              <ShowPasswordContainer>
+                <input
+                  type="checkbox"
+                  id="checkbox"
+                  onChange={this.onShowHidePassword}
+                />
+                <Label
+                  htmlFor="checkbox"
+                  checked={isShowPassword}
+                  color={isDarkTheme}
+                >
+                  Show Password
+                </Label>
+              </ShowPasswordContainer>
+
+              <LoginButton type="submit">Login</LoginButton>
+              <p>{errorMsg}</p>
+            </FormContainer>
+          )
+        }}
+      </CardContext.Consumer>
     )
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return <LoginFormContainer>{this.renderLoginForm()}</LoginFormContainer>
   }
 }

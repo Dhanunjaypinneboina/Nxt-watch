@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const VideosListContainer = styled.div`
+export const VideosListContainer = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `
